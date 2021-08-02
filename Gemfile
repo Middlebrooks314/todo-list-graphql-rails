@@ -34,6 +34,7 @@ group :development do
 end
 
 group :test do
+  gem "rspec_junit_formatter", "~> 0.4.1"
   gem "rubocop-rails", "~> 2.11"
   gem "rubocop-rspec", "~> 2.4"
 end

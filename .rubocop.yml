@@ -11,6 +11,8 @@ AllCops:
     - 'config/**/*'
     - 'db/**/*'
     - 'app/mailers/*'
+    - 'app/graphql/types/*'
+    - 'app/graphql/todo_list_graphql_rails_schema.rb'
 # Default lint cops
 Lint/AssignmentInCondition:
   Enabled: true

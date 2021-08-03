@@ -33,6 +33,7 @@ end
 
 group :development do
   gem "listen", "~> 3.3"
+  gem "graphiql-rails", "~> 1.7"
 end
 
 group :test do

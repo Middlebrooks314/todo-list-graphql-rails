@@ -4,8 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.7.2"
 
 gem "graphql", "~> 1.12"
-gem "graphiql-rails", "~> 1.7"
-gem "listen", "~> 3.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 6.1.4"
@@ -34,6 +32,8 @@ group :development, :test do
 end
 
 group :development do
+  gem "listen", "~> 3.3"
+  gem "graphiql-rails", "~> 1.7"
 end
 
 group :test do

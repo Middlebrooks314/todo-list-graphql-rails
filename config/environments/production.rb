@@ -87,7 +87,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # config.assets.precompile += ['graphiql/rails/application.js', 'graphiql/rails/application.css']
+  config.assets.precompile += ['graphiql/rails/application.js', 'graphiql/rails/application.css']
 
  
 

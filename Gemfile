@@ -37,7 +37,6 @@ end
 
 group :test do
   gem "database_cleaner", "~> 2.0"
-  gem "factory_bot_rails", "~> 6.2"
   gem "rspec_junit_formatter", "~> 0.4.1"
   gem "rubocop-rails", "~> 2.11"
   gem "rubocop-rspec", "~> 2.4"

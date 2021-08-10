@@ -5,18 +5,6 @@ module Queries
     describe "query all todos" do
       it "returns a successful response when there are no todos" do
 
-        query = <<~GQL
-        query {
-          allTodos {
-            id
-            title
-            description
-            completed
-            author
-          }
-        }
-      GQL
-
         post "/graphql", params: {query: query}
 
         todo_list = json["data"]["allTodos"]
@@ -27,18 +15,6 @@ module Queries
 
       it "returns a single todo" do
         Todo.create(title: "Make coffee", completed: false, author: "Albert Einstein", description: "Do it well.")
-
-        query = <<~GQL
-        query {
-          allTodos {
-            id
-            title
-            description
-            completed
-            author
-          }
-        }
-      GQL
 
         post "/graphql", params: {query: query}
 
@@ -58,18 +34,6 @@ module Queries
         Todo.create(title: "Pull weeds", completed: true, author: "Foo")
         Todo.create(title: "Make jam", completed: true, author: "Foo")
 
-        query = <<~GQL
-        query {
-          allTodos {
-            id
-            title
-            description
-            completed
-            author
-          }
-        }
-      GQL
-
         post "/graphql", params: {query: query}
 
         todo_list = json["data"]["allTodos"]
@@ -78,6 +42,20 @@ module Queries
         expect(todo_list[0]["title"]).to eq("Cut grass")
         expect(todo_list[1]["title"]).to eq("Pull weeds")
         expect(todo_list[2]["title"]).to eq("Make jam")
+      end
+
+      def query
+        <<~GQL
+          query {
+            allTodos {
+              id
+              title
+              description
+              completed
+              author
+            }
+          }
+        GQL
       end
     end
   end

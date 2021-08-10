@@ -2,6 +2,11 @@ class TodoListGraphqlRailsSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
 
+  rescue_from(ActiveRecord::RecordNotFound) do |err, obj, args, ctx, field|
+    # Raise a graphql-friendly error with a custom message
+    raise GraphQL::ExecutionError, "#{err}"
+  end
+  
   # Union and Interface Resolution
   def self.resolve_type(abstract_type, obj, ctx)
     # TODO: Implement this function

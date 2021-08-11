@@ -8,6 +8,9 @@ module Types
       description: "A basic status check to make sure the API and graphiql is working."
     field :all_todos, [Types::TodoType], null: false,
       description: "Returns all todos"
+    field :search_todos_by_status, [Types::TodoType], null: false do
+      argument :completed, Boolean, required: true
+    end
     
     def status
       "OK"
@@ -15,6 +18,10 @@ module Types
 
    def all_todos
     Todo.all
+   end
+
+   def search_todos_by_status(completed:)
+    Todo.where(completed: completed)
    end
   end
 end
